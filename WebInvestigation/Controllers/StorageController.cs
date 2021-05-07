@@ -78,7 +78,7 @@ namespace WebInvestigation.Controllers
                 if (!model.Skip)
                 {
                     var credential = new StorageSharedKeyCredential(model.StrageAccountName, model.Key);
-                    var serviceUri = new Uri($"https://vnetpocstorage.{model.Page.ToLower()}.core.windows.net/");
+                    var serviceUri = new Uri($"https://{model.StrageAccountName}.{model.Page.ToLower()}.core.windows.net/");
                     var service = new BlobServiceClient(serviceUri, credential);
                     var container = service.GetBlobContainerClient(model.BlobContainerName);
                     var blob = container.GetBlobClient(model.BlobName);
