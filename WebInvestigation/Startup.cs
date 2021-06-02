@@ -45,7 +45,7 @@ namespace WebInvestigation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{app=default}/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
