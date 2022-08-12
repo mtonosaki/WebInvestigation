@@ -47,10 +47,10 @@ namespace WebInvestigation.Models
 
         public string GetOutboundIP()
         {
-            var restask = HTTP.GetAsync($"https://aqtono.com/ci.php?dummy={MathUtil.Rand(10000000, 99999999)}");
+            var restask = HTTP.GetAsync($"http://httpbin.org/ip?dummy={MathUtil.Rand(10000000, 99999999)}");
             var res = restask.ConfigureAwait(false).GetAwaiter().GetResult();
             var iptm = res.Content.ReadAsStringAsync().Result;
-            OutboundIP = StrUtil.LeftBefore(iptm, "<[Bb][Rr]");
+            OutboundIP = StrUtil.MidOn(iptm, "[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]", iptm);
             return OutboundIP;
         }
 
