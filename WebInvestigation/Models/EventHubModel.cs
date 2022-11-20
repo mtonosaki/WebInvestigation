@@ -5,12 +5,9 @@ using Microsoft.Azure.EventHubs;
 using System;
 using System.Collections.Generic;
 
-namespace WebInvestigation.Models
-{
-    public class EventHubModel
-    {
-        public static readonly EventHubModel Default = new EventHubModel
-        {
+namespace WebInvestigation.Models {
+    public class EventHubModel {
+        public static readonly EventHubModel Default = new EventHubModel {
             ConnectionString = "Endpoint=sb://<your event hub name>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=12345678901234567890123+123456789=",
             EventHubName = "(Your Event Hub Name)",
             ConsumerGroupName = "(Your ConsumerGroupName)",

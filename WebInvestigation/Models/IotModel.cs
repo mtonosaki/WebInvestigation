@@ -1,16 +1,10 @@
 ﻿using FastEnumUtility;
 using Microsoft.Azure.Devices.Client;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace WebInvestigation.Models
-{
-    public class IotModel
-    {
-        public static readonly IotModel Default = new IotModel
-        {
+namespace WebInvestigation.Models {
+    public class IotModel {
+        public static readonly IotModel Default = new IotModel {
             HostName = "<your IoT Hub URI>",
             DeviceId = "<your device id>",
             DeviceKey = "<your device shared key>",
@@ -23,6 +17,8 @@ namespace WebInvestigation.Models
         public string Result { get; set; }
         public string ErrorMessage { get; set; }
 
-        public IEnumerable<string> GetTransportTypeList() => FastEnum.GetNames<TransportType>();
+        public IEnumerable<string> GetTransportTypeList() {
+            return FastEnum.GetNames<TransportType>();
+        }
     }
 }

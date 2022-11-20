@@ -7,54 +7,44 @@ using System.Diagnostics;
 using System.Net.Http;
 using WebInvestigation.Models;
 
-namespace WebInvestigation.Controllers
-{
-    public class HomeController : Controller
-    {
+namespace WebInvestigation.Controllers {
+    public class HomeController: Controller {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
+        public HomeController(ILogger<HomeController> logger) {
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
+        public IActionResult Index() {
             return View();
         }
 
         private static readonly HttpClient HTTP = new HttpClient();
 
-        public IActionResult Ping(PingModel model = null)
-        {
+        public IActionResult Ping(PingModel model = null) {
             model ??= new PingModel();
-            if (!string.IsNullOrEmpty(model.Ip))
-            {
-                var res = HTTP.GetAsync($"{Request.Scheme}://{Request.Host}/api/Ping?ip={model.Ip}");
+            if (!string.IsNullOrEmpty(model.Ip)) {
+                System.Threading.Tasks.Task<HttpResponseMessage> res = HTTP.GetAsync($"{Request.Scheme}://{Request.Host}/api/Ping?ip={model.Ip}");
                 model.Set(res);
             }
             return View(model);
         }
 
-        public IActionResult Dns(DnsModel model = null)
-        {
+        public IActionResult Dns(DnsModel model = null) {
             model ??= new DnsModel();
-            if (!string.IsNullOrEmpty(model.Host))
-            {
-                var res = HTTP.GetAsync($"{Request.Scheme}://{Request.Host}/api/Dns?host={model.Host}");
+            if (!string.IsNullOrEmpty(model.Host)) {
+                System.Threading.Tasks.Task<HttpResponseMessage> res = HTTP.GetAsync($"{Request.Scheme}://{Request.Host}/api/Dns?host={model.Host}");
                 model.Set(res);
             }
             return View(model);
         }
 
-        public IActionResult Privacy()
-        {
+        public IActionResult Privacy() {
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
+        public IActionResult Error() {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

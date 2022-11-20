@@ -1,12 +1,9 @@
 ﻿// (c) 2020 Manabu Tonosaki
 // Licensed under the MIT license.
 
-namespace WebInvestigation.Models
-{
-    public class KeyVaultModel
-    {
-        public static readonly KeyVaultModel Default = new KeyVaultModel
-        {
+namespace WebInvestigation.Models {
+    public class KeyVaultModel {
+        public static readonly KeyVaultModel Default = new KeyVaultModel {
             Url = "https://<your keyvault name>.azure.net/",
             Key = "secret key name here",
             ApplicationID = "ZZZZZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZZZZZZZZZ",

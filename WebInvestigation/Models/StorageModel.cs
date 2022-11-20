@@ -3,12 +3,9 @@
 
 using System.Collections.Generic;
 
-namespace WebInvestigation.Models
-{
-    public class StorageModel
-    {
-        public static readonly StorageModel Default = new StorageModel
-        {
+namespace WebInvestigation.Models {
+    public class StorageModel {
+        public static readonly StorageModel Default = new StorageModel {
             Page = "(DUMMY)",
             StrageAccountName = "(Your Storage Account Name)",
             Key = "(Your Storaget Key1 or Key2)",
